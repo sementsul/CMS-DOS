@@ -1,0 +1,4 @@
+CMS-DOS
+Eto fayl iz servernoy papki (backend/workspace).
+Redaktiruy: edit WELCOME.TXT
+Avtosohranenie na server - avtomaticheski.
