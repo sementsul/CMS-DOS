@@ -1,0 +1,48 @@
+CMS-DOS
+Copyright (C) 2026 Семенцул Максим (MaGz GoLd)
+
+Эта программа — свободное ПО: распространяется на условиях GNU General Public
+License версии 2 (см. файл LICENSE). Проект содержит компоненты сторонних
+авторов под их собственными лицензиями (перечислены ниже).
+
+Причина выбора GPLv2 (а не GPLv3): в состав входит js-dos, а в нём — DOSBox,
+распространяемые под GPL-2.0. GPL-2.0-only несовместима с GPLv3, поэтому весь
+комбинированный продукт публикуется под GPLv2.
+
+================================================================================
+Сторонние компоненты
+================================================================================
+
+1) js-dos  — DOSBox/DOSBox-X в браузере (WebAssembly)
+   Лицензия: GPL-2.0
+   Автор:    Alexander Guryanov (caiiiycuk)
+   Сайт:     https://js-dos.com
+   Репо:     https://github.com/caiiiycuk/js-dos
+   Файлы:    frontend/vendor/  (js-dos.js, js-dos.css, emulators/*, wdosbox.*)
+
+2) DOSBox  — эмулятор DOS (поставляется скомпилированным в WebAssembly в составе js-dos)
+   Лицензия: GPL-2.0
+   Сайт:     https://www.dosbox.com
+   Файлы:    frontend/vendor/emulators/wdosbox.wasm (и связанные)
+
+--- Бэкенд (пермиссивные лицензии, совместимы с GPL) ---
+
+3) FastAPI            — MIT           — https://github.com/fastapi/fastapi
+4) Starlette          — BSD-3-Clause  — https://github.com/encode/starlette
+5) Uvicorn            — BSD-3-Clause  — https://github.com/encode/uvicorn
+6) Pydantic           — MIT           — https://github.com/pydantic/pydantic
+7) python-multipart   — Apache-2.0    — https://github.com/Kludex/python-multipart
+
+--- Только для разработки/тестов (не входят в рантайм) ---
+
+8) httpx              — BSD-3-Clause  — https://github.com/encode/httpx
+9) pytest             — MIT           — https://github.com/pytest-dev/pytest
+
+================================================================================
+Примечания
+================================================================================
+- Точный вариант GPL у js-dos/DOSBox (GPL-2.0-only или GPL-2.0-or-later) стоит
+  подтвердить по исходникам первоисточников. Если подтвердится «or-later»,
+  публикация под GPLv3 также станет возможной. До подтверждения — GPLv2.
+- При распространении сохраняйте этот файл, файл LICENSE и копирайты авторов.
+- Это не юридическая консультация.
