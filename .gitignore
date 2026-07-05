@@ -1,0 +1,7 @@
+backend/.venv/
+__pycache__/
+*.pyc
+backend/workspace/
+.env
+frontend/vendor/
+data/
