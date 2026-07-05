@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMS-DOS</title>
+  <link rel="stylesheet" href="/vendor/js-dos.css">
+  <style>
+    :root { --bg:#0b0e14; --panel:#141922; --accent:#3ad; --amber:#e8b74a; }
+    html, body { margin:0; height:100%; background:var(--bg); color:#dfe6ee;
+      font-family:'Segoe UI', system-ui, sans-serif; }
+    header { height:44px; box-sizing:border-box; padding:0 14px; background:var(--panel);
+      border-bottom:1px solid #2a3140; display:flex; align-items:center; gap:14px; }
+    header .brand { color:var(--amber); font-weight:700; letter-spacing:2px; }
+    header .spacer { flex:1; }
+    header button { background:#1f2735; color:#dfe6ee; border:1px solid #38455a; border-radius:6px;
+      padding:6px 12px; cursor:pointer; font-size:13px; }
+    header button:hover { border-color:var(--accent); }
+    #dos { position:absolute; top:44px; left:0; right:0; bottom:0; }
+
+    /* Оверлеи входа / смены пароля */
+    .overlay { position:fixed; inset:0; background:rgba(6,8,12,.92); display:flex;
+      align-items:center; justify-content:center; z-index:50; }
+    .overlay[hidden] { display:none; }
+    .card { width:340px; max-width:90vw; background:var(--panel); border:1px solid #2a3140;
+      border-radius:10px; padding:22px; box-shadow:0 8px 40px rgba(0,0,0,.5); }
+    .card h2 { margin:0 0 4px; color:var(--amber); letter-spacing:2px; }
+    .card .sub { color:#8b97a7; font-size:13px; margin-bottom:16px; }
+    .card label { display:block; font-size:12px; color:#9aa7b8; margin:10px 0 4px; }
+    .card input { width:100%; box-sizing:border-box; padding:9px 10px; border-radius:6px;
+      background:#0e131b; border:1px solid #38455a; color:#eaf0f6; }
+    .card button { width:100%; margin-top:16px; padding:10px; border:0; border-radius:6px;
+      background:var(--accent); color:#03151c; font-weight:700; cursor:pointer; }
+    .card .err { color:#ff7a7a; font-size:13px; min-height:18px; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">CMS-DOS</span>
+    <span id="syncStatus" style="color:#7fd67f; font-size:12px; min-width:150px;">автосохранение включено</span>
+    <span class="spacer"></span>
+    <button id="btnFull" title="Развернуть эмулятор на весь экран">⛶ Полный экран</button>
+    <button id="btnLogout">Выход</button>
+  </header>
+  <div id="dos"></div>
+
+  <!-- Окно входа -->
+  <div class="overlay" id="loginOverlay" hidden>
+    <div class="card">
+      <h2>CMS-DOS</h2>
+      <div class="sub">Вход в систему</div>
+      <label>Логин</label>
+      <input id="loginUser" autocomplete="username" value="admin">
+      <label>Пароль</label>
+      <input id="loginPass" type="password" autocomplete="current-password">
+      <button id="btnLogin">Войти</button>
+      <div class="err" id="loginErr"></div>
+    </div>
+  </div>
+
+  <!-- Окно смены пароля -->
+  <div class="overlay" id="changeOverlay" hidden>
+    <div class="card">
+      <h2>CMS-DOS</h2>
+      <div class="sub" id="changeSub">Смените пароль по умолчанию</div>
+      <div id="oldRow" hidden>
+        <label>Текущий пароль</label>
+        <input id="oldPass" type="password" autocomplete="current-password">
+      </div>
+      <label>Новый пароль</label>
+      <input id="newPass" type="password" autocomplete="new-password">
+      <label>Повторите новый пароль</label>
+      <input id="newPass2" type="password" autocomplete="new-password">
+      <button id="btnChange">Сохранить</button>
+      <div class="err" id="changeErr"></div>
+    </div>
+  </div>
+
+  <script src="/vendor/js-dos.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
