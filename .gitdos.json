@@ -1,0 +1,11 @@
+{
+  "hardware": {
+    "core": "normal",
+    "cputype": "486_slow",
+    "cycles": "5000",
+    "memsize": 63,
+    "machine": "vgaonly",
+    "sbtype": "sb16",
+    "pcspeaker": true
+  }
+}
